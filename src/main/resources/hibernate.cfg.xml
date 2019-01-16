@@ -1,0 +1,44 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- JDBC Database connection settings -->
+		<property name="connection.driver_class">${hibernate.connection.driverClass}</property>
+		<property name="connection.url">${hibernate.connection.url}</property>
+		<property name="connection.username">${hibernate.connection.username}</property>
+		<property name="connection.password">${hibernate.connection.password}</property>
+
+		<!-- JDBC connection pool settings ... using built-in test pool -->
+		<property name="connection.pool_size">10</property>
+
+        <!-- Disable the Second Level Cache -->
+		<property name="cache.use_second_level_cache">false</property>
+		
+ 		<!-- Enable the Second Level Cache -->
+		<!-- <property name="cache.use_second_level_cache">true</property>
+		<property name="cache.use_query_cache">true</property>
+		<property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheProviderRegionFactory</property>
+		<property name="net.sf.ehcache.configurationResourceName">/myEhcache.xml</property> -->
+
+		<!-- Select our SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+		<!-- Echo the SQL to stdout -->
+		<property name="show_sql">true</property>
+
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">create</property>
+
+		<!-- Set the current session context -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- Name the annotated Entity Class <mapping class="com.practice.hibernate.dto.UserDto"
+			/> -->
+
+	</session-factory>
+
+</hibernate-configuration>
